@@ -1,4 +1,4 @@
-# TabNavigator
+# TabNavigator [![Slack](http://slack.exponentjs.com/badge.svg)](http://slack.exponentjs.com)
 A tab bar that switches between scenes, written in JS for cross-platform support.
 
 To use this component, you will need to enable the following Babel options:
