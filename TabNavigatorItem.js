@@ -1,14 +1,11 @@
-/**
- * @providesModule TabNavigatorItem
- */
 'use strict';
 
-let React = require('react-native');
+import React from 'react-native';
 let {
   PropTypes,
 } = React;
 
-class TabNavigatorItem extends React.Component {
+export default class TabNavigatorItem extends React.Component {
   static propTypes = {
     renderIcon: PropTypes.func.isRequired,
     renderSelectedIcon: PropTypes.func,
@@ -26,5 +23,3 @@ class TabNavigatorItem extends React.Component {
     });
   }
 }
-
-module.exports = TabNavigatorItem;

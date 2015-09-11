@@ -1,16 +1,16 @@
 'use strict';
 
-let React = require('react-native');
+import React from 'react-native';
 let {
   StyleSheet,
   Text,
 } = React;
 
-let autobind = require('autobind-decorator');
+import autobind from 'autobind-decorator';
 
-let Layout = require('./Layout');
+import Layout from './Layout';
 
-class Badge extends React.Component {
+export default class Badge extends React.Component {
   static propTypes = Text.propTypes;
 
   state = {
@@ -69,5 +69,3 @@ let styles = StyleSheet.create({
     overflow: 'hidden',
   },
 });
-
-module.exports = Badge;

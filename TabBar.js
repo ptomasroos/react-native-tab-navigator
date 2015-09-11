@@ -1,14 +1,14 @@
 'use strict';
 
-let React = require('react-native');
+import React from 'react-native';
 let {
   StyleSheet,
   View,
 } = React;
 
-let Layout = require('./Layout');
+import Layout from './Layout';
 
-class TabBar extends React.Component {
+export default class TabBar extends React.Component {
   static propTypes = View.propTypes;
 
   render() {
@@ -41,5 +41,3 @@ let styles = StyleSheet.create({
     top: -Layout.pixel,
   },
 });
-
-module.exports = TabBar;

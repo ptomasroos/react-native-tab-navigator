@@ -1,6 +1,6 @@
 'use strict';
 
-let React = require('react-native');
+import React from 'react-native';
 let {
   PropTypes,
   StyleSheet,
@@ -9,11 +9,11 @@ let {
   View,
 } = React;
 
-let autobind = require('autobind-decorator');
+import autobind from 'autobind-decorator';
 
-let Layout = require('./Layout');
+import Layout from './Layout';
 
-class Tab extends React.Component {
+export default class Tab extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
@@ -87,5 +87,3 @@ let styles = StyleSheet.create({
     marginBottom: 1 + Layout.pixel,
   },
 });
-
-module.exports = Tab;

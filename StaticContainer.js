@@ -1,6 +1,6 @@
 'use strict';
 
-let React = require('react-native');
+import React from 'react-native';
 let {
   PropTypes,
 } = React;

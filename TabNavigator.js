@@ -1,19 +1,20 @@
 'use strict';
 
-let { Set } = require('immutable');
-let React = require('react-native');
+import { Set } from 'immutable';
+import React from 'react-native';
 let {
   PropTypes,
   StyleSheet,
   View,
 } = React;
 
-let Badge = require('./Badge');
-let StaticContainer = require('./StaticContainer');
-let Tab = require('./Tab');
-let TabBar = require('./TabBar');
+import Badge from './Badge';
+import StaticContainer from './StaticContainer';
+import Tab from './Tab';
+import TabBar from './TabBar';
+import TabNavigatorItem from './TabNavigatorItem';
 
-class TabNavigator extends React.Component {
+export default class TabNavigator extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -163,6 +164,4 @@ let styles = StyleSheet.create({
   },
 });
 
-TabNavigator.Item = require('./TabNavigatorItem');
-
-module.exports = TabNavigator;
+TabNavigator.Item = TabNavigatorItem;
