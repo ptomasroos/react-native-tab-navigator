@@ -26,7 +26,7 @@ let styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    height: 49,
+    height: Layout.tabBarHeight,
     position: 'absolute',
     bottom: 0,
     left: 0,

@@ -9,6 +9,7 @@ let {
 } = React;
 
 import Badge from './Badge';
+import Layout from './Layout';
 import StaticContainer from './StaticContainer';
 import Tab from './Tab';
 import TabBar from './TabBar';
@@ -146,6 +147,7 @@ let styles = StyleSheet.create({
   },
   sceneContainer: {
     flex: 1,
+    paddingBottom: Layout.tabBarHeight,
   },
   hiddenSceneContainer: {
     height: 0,
