@@ -63,11 +63,8 @@ export default class TabNavigator extends React.Component {
         <SceneContainer key={sceneKey} selected={selected}>
           {item}
         </SceneContainer>;
-      if (selected) {
-        scenes.push(scene);
-      } else {
-        scenes.unshift(scene);
-      }
+
+      scenes.push(scene);
     });
 
     return (
@@ -146,17 +143,16 @@ let styles = StyleSheet.create({
     flex: 1,
   },
   sceneContainer: {
-    flex: 1,
-    paddingBottom: Layout.tabBarHeight,
-  },
-  hiddenSceneContainer: {
-    height: 0,
-    overflow: 'hidden',
-    opacity: 0,
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
+    bottom: 0,
+    paddingBottom: Layout.tabBarHeight,
+  },
+  hiddenSceneContainer: {
+    overflow: 'hidden',
+    opacity: 0,
   },
   defaultSelectedTitle: {
     color: 'rgb(0, 122, 255)',
