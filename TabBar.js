@@ -2,6 +2,7 @@
 
 import React from 'react-native';
 let {
+  Platform,
   StyleSheet,
   View,
 } = React;
@@ -38,6 +39,6 @@ let styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    top: -Layout.pixel,
+    top: Platform.OS === 'android' ? 0 : -Layout.pixel,
   },
 });
