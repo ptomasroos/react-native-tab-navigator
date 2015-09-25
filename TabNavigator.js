@@ -16,6 +16,11 @@ import TabBar from './TabBar';
 import TabNavigatorItem from './TabNavigatorItem';
 
 export default class TabNavigator extends React.Component {
+  propTypes: {
+    ...View.propTypes,
+    tabBarStyle: TabBar.propTypes.style,
+  },
+
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -49,7 +54,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, ...props } = this.props;
+    let { style, children, tabBarStyle, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -70,7 +75,7 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
-        <TabBar>
+        <TabBar style={tabBarStyle]>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
       </View>
