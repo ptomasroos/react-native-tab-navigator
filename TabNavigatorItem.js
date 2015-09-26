@@ -2,6 +2,7 @@
 
 import React from 'react-native';
 let {
+  Text,
   PropTypes,
 } = React;
 
@@ -12,6 +13,8 @@ export default class TabNavigatorItem extends React.Component {
     badgeText: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
     renderBadge: PropTypes.func,
     title: PropTypes.string,
+    titleStyle: Text.propTypes.style,
+    selectedTitleStyle: Text.propTypes.style,
     selected: PropTypes.bool,
     onPress: PropTypes.func,
   };
