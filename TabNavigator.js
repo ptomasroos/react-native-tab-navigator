@@ -16,7 +16,7 @@ import TabBar from './TabBar';
 import TabNavigatorItem from './TabNavigatorItem';
 
 export default class TabNavigator extends React.Component {
-  propTypes = {
+  static propTypes = {
     ...View.propTypes,
     tabBarStyle: TabBar.propTypes.style,
   };
