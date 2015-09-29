@@ -18,6 +18,7 @@ import TabNavigatorItem from './TabNavigatorItem';
 export default class TabNavigator extends React.Component {
   static propTypes = {
     ...View.propTypes,
+    sceneStyle: SceneContainer.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
   };
 
@@ -54,7 +55,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, tabBarStyle, ...props } = this.props;
+    let { style, children, tabBarStyle, sceneStyle, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -65,7 +66,7 @@ export default class TabNavigator extends React.Component {
 
       let { selected } = item.props;
       let scene =
-        <SceneContainer key={sceneKey} selected={selected}>
+        <SceneContainer key={sceneKey} selected={selected} style={sceneStyle}>
           {item}
         </SceneContainer>;
 
@@ -121,6 +122,7 @@ export default class TabNavigator extends React.Component {
 
 class SceneContainer extends React.Component {
   static propTypes = {
+    ...View.propTypes,
     selected: PropTypes.bool,
   };
 
@@ -134,6 +136,7 @@ class SceneContainer extends React.Component {
         style={[
           styles.sceneContainer,
           selected ? null : styles.hiddenSceneContainer,
+          props.style,
         ]}>
         <StaticContainer shouldUpdate={selected}>
           {this.props.children}
