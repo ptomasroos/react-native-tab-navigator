@@ -110,7 +110,10 @@ export default class TabNavigator extends React.Component {
         title={item.props.title}
         titleStyle={[
           item.props.titleStyle,
-          item.props.selected ? styles.defaultSelectedTitle : null,
+          item.props.selected ? [
+            styles.defaultSelectedTitle,
+            item.props.selectedTitleStyle,
+          ] : null,
         ]}
         badge={badge}
         onPress={item.props.onPress}>
