@@ -13,7 +13,7 @@ The API of this component may change in the future to be more like Navigator's, 
 ## Usage
 
 ```js
-<TabNavigator>
+<TabNavigator tabBarStyle={...}>
   <TabNavigator.Item
     selected={this.state.selectedTab === 'home'}
     title="Home"
