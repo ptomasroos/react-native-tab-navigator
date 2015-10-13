@@ -20,9 +20,17 @@ export default class TabNavigator extends React.Component {
     ...View.propTypes,
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
+    isVisible: PropTypes.bool,
+    isFullScreen: PropTypes.bool,
   };
 
   constructor(props, context) {
+    if(!("isVisible" in props)){
+      props.isVisible = true
+    }
+    if(!("isFullScreen" in props)){
+      props.isFullScreen = false
+    }
     super(props, context);
     this.state = {
       renderedSceneKeys: this._updateRenderedSceneKeys(props.children),
@@ -55,7 +63,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, tabBarStyle, sceneStyle, ...props } = this.props;
+    let { style, isVisible, isFullScreen, children, tabBarStyle, sceneStyle, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -66,19 +74,21 @@ export default class TabNavigator extends React.Component {
 
       let { selected } = item.props;
       let scene =
-        <SceneContainer key={sceneKey} selected={selected} style={sceneStyle}>
+        <SceneContainer key={sceneKey} selected={selected} style={sceneStyle} isFullScreen={!isVisible||isFullScreen}>
           {item}
         </SceneContainer>;
 
       scenes.push(scene);
     });
-
-    return (
-      <View {...props} style={[styles.container, style]}>
-        {scenes}
+    let tabBarView = isVisible ? (
         <TabBar style={tabBarStyle}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
+      ): null
+    return (
+      <View {...props} style={[styles.container, style]}>
+        {scenes}
+        {tabBarView}
       </View>
     );
   }
@@ -127,10 +137,11 @@ class SceneContainer extends React.Component {
   static propTypes = {
     ...View.propTypes,
     selected: PropTypes.bool,
+    isFullScreen:PropTypes.bool,
   };
 
   render() {
-    let { selected, ...props } = this.props;
+    let { selected,isFullScreen, ...props } = this.props;
     return (
       <View
         {...props}
@@ -138,6 +149,7 @@ class SceneContainer extends React.Component {
         removeClippedSubviews={!selected}
         style={[
           styles.sceneContainer,
+          isFullScreen ? styles.fullScreen : null,
           selected ? null : styles.hiddenSceneContainer,
           props.style,
         ]}>
@@ -164,6 +176,9 @@ let styles = StyleSheet.create({
   hiddenSceneContainer: {
     overflow: 'hidden',
     opacity: 0,
+  },
+  fullScreen: {
+    paddingBottom: 0,
   },
   defaultSelectedTitle: {
     color: 'rgb(0, 122, 255)',
