@@ -20,6 +20,7 @@ export default class TabNavigator extends React.Component {
     ...View.propTypes,
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
+    tabBarShadowStyle: TabBar.propTypes.shadowStyle,
   };
 
   constructor(props, context) {
@@ -55,7 +56,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, tabBarStyle, sceneStyle, ...props } = this.props;
+    let { style, children, tabBarStyle, tabBarShadowStyle, sceneStyle, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -76,7 +77,7 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
-        <TabBar style={tabBarStyle}>
+        <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
       </View>
