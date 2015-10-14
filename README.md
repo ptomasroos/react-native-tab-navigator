@@ -36,3 +36,14 @@ The API of this component may change in the future to be more like Navigator's, 
 ```
 
 See TabNavigatorItem's supported props for more info.
+
+### Hiding the Tab Bar
+
+You can hide the tab bar by using styles. For example:
+```js
+let tabBarHeight = 0;
+<TabNavigator
+  tabBarStyle={{ height: tabBarHeight }}
+  sceneStyle={{ paddingBottom: tabBarHeight }}
+/>
+```
