@@ -1,13 +1,12 @@
 'use strict';
 
-import React from 'react-native';
-let {
+import React, {
   PropTypes,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} = React;
+} from 'react-native';
 
 import autobind from 'autobind-decorator';
 

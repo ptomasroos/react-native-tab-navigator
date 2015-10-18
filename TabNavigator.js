@@ -1,12 +1,11 @@
 'use strict';
 
 import { Set } from 'immutable';
-import React from 'react-native';
-let {
+import React, {
   PropTypes,
   StyleSheet,
   View,
-} = React;
+} from 'react-native';
 
 import Badge from './Badge';
 import Layout from './Layout';

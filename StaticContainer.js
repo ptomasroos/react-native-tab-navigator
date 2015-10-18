@@ -1,9 +1,8 @@
 'use strict';
 
-import React from 'react-native';
-let {
+import React, {
   PropTypes,
-} = React;
+} from 'react-native';
 
 export default class StaticContainer extends React.Component {
   static propTypes = {

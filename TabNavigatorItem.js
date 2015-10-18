@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react-native';
-let {
+import React, {
   Text,
   PropTypes,
-} = React;
+  View,
+} from 'react-native';
 
 export default class TabNavigatorItem extends React.Component {
   static propTypes = {
@@ -17,6 +17,10 @@ export default class TabNavigatorItem extends React.Component {
     selectedTitleStyle: Text.propTypes.style,
     selected: PropTypes.bool,
     onPress: PropTypes.func,
+  };
+
+  static defaultProps = {
+    renderIcon: () => <View />,
   };
 
   render() {
