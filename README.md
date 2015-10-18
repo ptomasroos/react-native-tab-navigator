@@ -43,7 +43,7 @@ You can hide the tab bar by using styles. For example:
 ```js
 let tabBarHeight = 0;
 <TabNavigator
-  tabBarStyle={{ height: tabBarHeight }}
+  tabBarStyle={{ height: tabBarHeight, overflow: 'hidden' }}
   sceneStyle={{ paddingBottom: tabBarHeight }}
 />
 ```
