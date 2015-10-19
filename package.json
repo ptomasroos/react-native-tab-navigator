@@ -10,7 +10,9 @@
   "keywords": [
     "react-native",
     "tab-bar",
-    "navigator"
+    "navigator",
+    "ios",
+    "android"
   ],
   "author": "James Ide",
   "license": "MIT",
