@@ -35,7 +35,7 @@ export default class Tab extends React.Component {
 
     if (badge) {
       badge = React.cloneElement(badge, {
-        style: [styles.badge, badge.style],
+        style: [styles.badge, badge.props.style],
       });
     }
 
