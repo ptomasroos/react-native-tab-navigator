@@ -2,7 +2,6 @@
 
 import React, {
   Platform,
-  PropTypes,
   StyleSheet,
   View,
 } from 'react-native';
@@ -12,7 +11,7 @@ import Layout from './Layout';
 export default class TabBar extends React.Component {
   static propTypes = {
     ...View.propTypes,
-    shadowStyle: PropTypes.object,
+    shadowStyle: View.propTypes.style,
   }
 
   render() {

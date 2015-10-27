@@ -7,6 +7,8 @@ import React, {
   View,
 } from 'react-native';
 
+import autobind from 'autobind-decorator';
+
 import Badge from './Badge';
 import Layout from './Layout';
 import StaticContainer from './StaticContainer';
@@ -20,6 +22,7 @@ export default class TabNavigator extends React.Component {
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
+    hidesTabTouch: PropTypes.bool
   };
 
   constructor(props, context) {
@@ -83,6 +86,7 @@ export default class TabNavigator extends React.Component {
     );
   }
 
+  @autobind
   _renderTab(item) {
     let icon;
     if (item.props.selected) {
@@ -116,7 +120,8 @@ export default class TabNavigator extends React.Component {
           ] : null,
         ]}
         badge={badge}
-        onPress={item.props.onPress}>
+        onPress={item.props.onPress}
+        hidesTabTouch={this.props.hidesTabTouch}>
         {icon}
       </Tab>
     );
