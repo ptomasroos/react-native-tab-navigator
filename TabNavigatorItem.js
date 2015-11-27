@@ -10,7 +10,7 @@ export default class TabNavigatorItem extends React.Component {
   static propTypes = {
     renderIcon: PropTypes.func.isRequired,
     renderSelectedIcon: PropTypes.func,
-    badgeText: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    badgeText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     renderBadge: PropTypes.func,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
