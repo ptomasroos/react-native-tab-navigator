@@ -22,7 +22,8 @@ export default class TabNavigator extends React.Component {
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
-    hidesTabTouch: PropTypes.bool
+    hidesTabTouch: PropTypes.bool,
+    translucent: PropTypes.bool,
   };
 
   constructor(props, context) {
@@ -58,7 +59,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, tabBarStyle, tabBarShadowStyle, sceneStyle, ...props } = this.props;
+    let { style, children, tabBarStyle, tabBarShadowStyle, translucent, sceneStyle, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -69,7 +70,11 @@ export default class TabNavigator extends React.Component {
 
       let { selected } = item.props;
       let scene =
-        <SceneContainer key={sceneKey} selected={selected} style={sceneStyle}>
+        <SceneContainer
+          translucent={translucent}
+          key={sceneKey}
+          selected={selected}
+          style={[{paddingBottom: translucent ? 0 : Layout.tabBarHeight}, sceneStyle]}>
           {item}
         </SceneContainer>;
 
@@ -79,7 +84,7 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
-        <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle}>
+        <TabBar style={tabBarStyle} translucent={translucent} shadowStyle={tabBarShadowStyle}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
       </View>
@@ -164,7 +169,6 @@ let styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    paddingBottom: Layout.tabBarHeight,
   },
   hiddenSceneContainer: {
     overflow: 'hidden',
