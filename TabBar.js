@@ -7,6 +7,7 @@ import React, {
 } from 'react-native';
 
 import Layout from './Layout';
+import { BlurView } from 'react-native-blur';
 
 export default class TabBar extends React.Component {
   static propTypes = {
@@ -15,18 +16,27 @@ export default class TabBar extends React.Component {
   }
 
   render() {
-    return (
-      <View {...this.props} style={[styles.container, this.props.style]}>
-        {this.props.children}
-        <View style={[styles.shadow, this.props.shadowStyle]} />
-      </View>
-    );
+    if (this.props.translucent) {
+      return (
+        <BlurView {...this.props} style={[styles.container, this.props.style]} blurType="light">
+          {this.props.children}
+          <View style={[styles.shadow, this.props.shadowStyle]} />
+        </BlurView>
+      );
+    } else {
+      return (
+        <View {...this.props} style={[styles.container, {backgroundColor: '#F8F8F8'}, this.props.style]}>
+          {this.props.children}
+          <View style={[styles.shadow, this.props.shadowStyle]} />
+        </View>
+      );
+    }
   }
 }
 
 let styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: 'rgba(248,248,248,0.8)',
     flexDirection: 'row',
     justifyContent: 'space-around',
     height: Layout.tabBarHeight,

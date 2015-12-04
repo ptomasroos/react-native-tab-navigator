@@ -12,7 +12,7 @@ The API of this component may change in the future to be more like Navigator's, 
 ## Usage
 
 ```js
-<TabNavigator>
+<TabNavigator translucent={true}>
   <TabNavigator.Item
     selected={this.state.selectedTab === 'home'}
     title="Home"
@@ -35,6 +35,15 @@ The API of this component may change in the future to be more like Navigator's, 
 ```
 
 See TabNavigatorItem's supported props for more info.
+
+
+### An important note on translucency
+
+When translucent is set to `true`, *you need to manually
+add padding to listViews and scrollViews*. This can't be done
+on the main app container since we want the content to show
+through below the tab bar.
+
 
 ### Hiding the Tab Bar
 
