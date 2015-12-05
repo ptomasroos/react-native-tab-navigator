@@ -8,8 +8,6 @@ import React, {
   View,
 } from 'react-native';
 
-import autobind from 'autobind-decorator';
-
 import Layout from './Layout';
 
 export default class Tab extends React.Component {
@@ -20,6 +18,12 @@ export default class Tab extends React.Component {
     onPress: PropTypes.func,
     hidesTabTouch: PropTypes.bool
   };
+
+  constructor(props, context) {
+    super(props, context);
+
+    this._handlePress = this._handlePress.bind(this);
+  }
 
   render() {
     let { title, badge } = this.props;
@@ -55,7 +59,6 @@ export default class Tab extends React.Component {
     );
   }
 
-  @autobind
   _handlePress(event) {
     if (this.props.onPress) {
       this.props.onPress(event);

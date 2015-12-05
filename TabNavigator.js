@@ -7,8 +7,6 @@ import React, {
   View,
 } from 'react-native';
 
-import autobind from 'autobind-decorator';
-
 import Badge from './Badge';
 import Layout from './Layout';
 import StaticContainer from './StaticContainer';
@@ -30,6 +28,8 @@ export default class TabNavigator extends React.Component {
     this.state = {
       renderedSceneKeys: this._updateRenderedSceneKeys(props.children),
     };
+
+    this._renderTab = this._renderTab.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -86,7 +86,6 @@ export default class TabNavigator extends React.Component {
     );
   }
 
-  @autobind
   _renderTab(item) {
     let icon;
     if (item.props.selected) {
