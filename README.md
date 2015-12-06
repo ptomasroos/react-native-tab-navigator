@@ -1,9 +1,7 @@
 # TabNavigator [![Slack](http://slack.exponentjs.com/badge.svg)](http://slack.exponentjs.com)
 A tab bar that switches between scenes, written in JS for cross-platform support. It works on iOS and Android.
 
-To use this component, you will need to enable the following Babel options:
- - es7.decorators
- - es7.classProperties
+This component is compatible with React Native 0.16 and newer.
 
 The look and feel is slightly different than the native navigator but it is better in some ways. Also it is pure JavaScript.
 
