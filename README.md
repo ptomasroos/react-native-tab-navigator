@@ -9,6 +9,14 @@ The API of this component may change in the future to be more like Navigator's, 
 
 ## Usage
 
+Import TabNavigator as a JavaScript module:
+
+```js
+import TabNavigator from 'react-native-tab-navigator';
+```
+
+This is an example of how to use the component and some of the commonly used props that it supports:
+
 ```js
 <TabNavigator>
   <TabNavigator.Item
