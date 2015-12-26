@@ -38,7 +38,7 @@ export default class Tab extends React.Component {
           numberOfLines={1}
           allowFontScaling={scaleFont}
           style={[styles.title, this.props.titleStyle]}>
-          !!{title}
+          {title}
         </Text>;
     }
 
