@@ -16,7 +16,8 @@ export default class Tab extends React.Component {
     titleStyle: Text.propTypes.style,
     badge: PropTypes.element,
     onPress: PropTypes.func,
-    hidesTabTouch: PropTypes.bool
+    hidesTabTouch: PropTypes.bool,
+    allowFontScaling: PropTypes.bool
   };
 
   constructor(props, context) {
@@ -33,6 +34,7 @@ export default class Tab extends React.Component {
       title =
         <Text
           numberOfLines={1}
+          allowFontScaling={!!this.props.allowFontScaling}
           style={[styles.title, this.props.titleStyle]}>
           {title}
         </Text>;
