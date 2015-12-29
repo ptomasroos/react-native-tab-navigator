@@ -115,6 +115,7 @@ export default class TabNavigator extends React.Component {
         testID={item.props.testID}
         title={item.props.title}
         allowFontScaling={item.props.allowFontScaling}
+        tabStyle={item.props.tabStyle}
         titleStyle={[
           item.props.titleStyle,
           item.props.selected ? [
