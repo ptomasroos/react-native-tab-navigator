@@ -1,6 +1,6 @@
 {
   "name": "react-native-tab-navigator",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "description": "A tab bar that switches between scenes, written in JS for cross-platform support",
   "main": "TabNavigator.js",
   "repository": {
