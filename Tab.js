@@ -29,14 +29,12 @@ export default class Tab extends React.Component {
   render() {
     let { title, badge } = this.props;
     let icon = React.Children.only(this.props.children);
-    // Default to true for undefined - like RN currently does
-    let scaleFont = (this.props.allowFontScaling === false) ? false : true;
 
     if (title) {
       title =
         <Text
           numberOfLines={1}
-          allowFontScaling={scaleFont}
+          allowFontScaling={!!this.props.allowFontScaling}
           style={[styles.title, this.props.titleStyle]}>
           {title}
         </Text>;
