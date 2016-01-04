@@ -92,13 +92,13 @@ export default class TabNavigator extends React.Component {
       if (item.props.renderSelectedIcon) {
         icon = item.props.renderSelectedIcon();
       } else if (item.props.renderIcon) {
-        let defaultIcon = item.props.renderIcon();
+        let defaultIcon = item.props.renderIcon(item.props.selected);
         icon = React.cloneElement(defaultIcon, {
           style: [defaultIcon.props.style, styles.defaultSelectedIcon],
         });
       }
     } else if (item.props.renderIcon) {
-      icon = item.props.renderIcon();
+      icon = item.props.renderIcon(item.props.selected);
     }
 
     let badge;
