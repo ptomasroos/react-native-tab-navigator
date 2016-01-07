@@ -12,7 +12,7 @@ export default class TabBar extends React.Component {
   static propTypes = {
     ...View.propTypes,
     shadowStyle: View.propTypes.style,
-  }
+  };
 
   render() {
     return (
