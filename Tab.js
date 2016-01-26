@@ -46,7 +46,7 @@ export default class Tab extends React.Component {
       });
     }
 
-    let tabStyle = [styles.container, title ? null : styles.untitledContainer];
+    let tabStyle = [styles.container, title ? null : styles.untitledContainer, this.props.style];
     return (
       <TouchableOpacity
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
