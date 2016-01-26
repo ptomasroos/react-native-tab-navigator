@@ -112,6 +112,13 @@ export default class TabNavigator extends React.Component {
       <Tab
         title={item.props.title}
         allowFontScaling={item.props.allowFontScaling}
+        style={[
+          item.props.tabStyle,
+          item.props.selected ? [
+            styles.defaultSelectedTab,
+            item.props.selectedTabStyle,
+          ] : null,
+        ]}
         titleStyle={[
           item.props.titleStyle,
           item.props.selected ? [
@@ -170,12 +177,20 @@ let styles = StyleSheet.create({
     overflow: 'hidden',
     opacity: 0,
   },
+  defaultTab: {
+  },
   defaultSelectedTitle: {
     color: 'rgb(0, 122, 255)',
   },
   defaultSelectedIcon: {
     tintColor: 'rgb(0, 122, 255)',
   },
+  defaultSelectedIcon: {
+    // tintColor: 'rgb(0, 122, 255)',
+  },
+  defaultSelectedTab: {
+  },
+
 });
 
 TabNavigator.Item = TabNavigatorItem;
