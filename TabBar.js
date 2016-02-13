@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {
+  Animated,
   Platform,
   StyleSheet,
   View,
@@ -16,10 +17,10 @@ export default class TabBar extends React.Component {
 
   render() {
     return (
-      <View {...this.props} style={[styles.container, this.props.style]}>
+      <Animated.View {...this.props} style={[styles.container, this.props.style]}>
         {this.props.children}
         <View style={[styles.shadow, this.props.shadowStyle]} />
-      </View>
+      </Animated.View>
     );
   }
 }
