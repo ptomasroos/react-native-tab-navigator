@@ -12,6 +12,7 @@ import Layout from './Layout';
 
 export default class Tab extends React.Component {
   static propTypes = {
+    testID : PropTypes.string,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
     badge: PropTypes.element,
@@ -49,6 +50,7 @@ export default class Tab extends React.Component {
     let tabStyle = [styles.container, title ? null : styles.untitledContainer];
     return (
       <TouchableOpacity
+        testID={this.props.testID}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
         style={tabStyle}>
