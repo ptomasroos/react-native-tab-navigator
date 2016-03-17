@@ -7,6 +7,13 @@ The look and feel is slightly different than the native navigator but it is bett
 
 The API of this component may change in the future to be more like Navigator's, which works great once there is better support for nested Navigators in React Native.
 
+Install
+-------
+
+Make sure that you are in your React Native project directory and run:
+
+```npm install react-native-tab-navigator --save```
+
 ## Usage
 
 Import TabNavigator as a JavaScript module:
