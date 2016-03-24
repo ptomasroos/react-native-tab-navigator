@@ -70,6 +70,8 @@ let tabBarHeight = 0;
 Since overflow hidden is not supported on Android, you can hide the tab bar by moving it off the screen. For example:
 
 ```js
+var Dimensions = require('Dimensions');
+
 if (hidden) {
     var tabBarStyle = {position: 'absolute', top: Dimensions.get('window').height};
     var sceneStyle = {paddingBottom: 0};
