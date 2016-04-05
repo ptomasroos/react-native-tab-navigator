@@ -1,5 +1,6 @@
 'use strict';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Set } from 'immutable';
 import React, {
   PropTypes,
@@ -86,19 +87,33 @@ export default class TabNavigator extends React.Component {
     );
   }
 
+  _renderVectorialIcon(item) {
+    if (item.props.iconName) {
+      return (
+        <Icon
+          name={ item.props.iconName }
+          size={ item.props.iconSize || 20 }
+          color={ item.props.iconColor || 'grey' } />
+      );
+    }
+    return false;
+  }
+
   _renderTab(item) {
     let icon;
-    if (item.props.selected) {
-      if (item.props.renderSelectedIcon) {
-        icon = item.props.renderSelectedIcon();
+    if (!(icon = this._renderVectorialIcon(item))) {
+      if (item.props.selected) {
+        if (item.props.renderSelectedIcon) {
+          icon = item.props.renderSelectedIcon();
+        } else if (item.props.renderIcon) {
+          let defaultIcon = item.props.renderIcon();
+          icon = React.cloneElement(defaultIcon, {
+            style: [defaultIcon.props.style, styles.defaultSelectedIcon],
+          });
+        }
       } else if (item.props.renderIcon) {
-        let defaultIcon = item.props.renderIcon();
-        icon = React.cloneElement(defaultIcon, {
-          style: [defaultIcon.props.style, styles.defaultSelectedIcon],
-        });
+        icon = item.props.renderIcon();
       }
-    } else if (item.props.renderIcon) {
-      icon = item.props.renderIcon();
     }
 
     let badge;
@@ -175,7 +190,7 @@ let styles = StyleSheet.create({
     color: 'rgb(0, 122, 255)',
   },
   defaultSelectedIcon: {
-      // tintColor: 'rgb(0, 122, 255)',
+    tintColor: 'rgb(0, 122, 255)',
   },
 });
 
