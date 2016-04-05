@@ -1,4 +1,5 @@
 import React, {
+  Component,
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
   TouchableOpacity,
@@ -24,9 +25,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const NativeButton = React.createClass({
+class NativeButton extends Component {
 
-  propTypes: {
+  static propTypes = {
     // Extract parent props
     ...TouchableWithoutFeedback.propTypes,
     textStyle: Text.propTypes.style,
@@ -34,21 +35,25 @@ const NativeButton = React.createClass({
     children: PropTypes.node.isRequired,
     activeOpacity: PropTypes.number,
     background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
-  },
+  };
 
-  statics: {
+  static defaultProps = {
+    textStyle: null,
+    disabledStyle: null,
+    underlayColor: null,
+  };
+
+  static statics =  {
     isAndroid: (Platform.OS === 'android'),
-  },
+  };
 
-  getDefaultProps: function() {
-    return {
-      textStyle: null,
-      disabledStyle: null,
-      underlayColor: null,
-    };
-  },
+  constructor() {
+    super();
 
-  _renderText: function() {
+
+  }
+
+  _renderInner() {
     // If children is not a string don't wrapp it in a Text component
     if (typeof this.props.children !== 'string') {
       return this.props.children;
@@ -59,9 +64,9 @@ const NativeButton = React.createClass({
         { this.props.children }
       </Text>
     );
-  },
+  }
 
-  render: function() {
+  render() {
     const disabledStyle = this.props.disabled ? (this.props.disabledStyle || styles.opacity) : {};
 
     // Extract Button props
@@ -92,7 +97,7 @@ const NativeButton = React.createClass({
         <TouchableNativeFeedback
           {...buttonProps}>
           <View style={[styles.button, this.props.style, disabledStyle]}>
-            {this._renderText()}
+            {this._renderInner()}
           </View>
         </TouchableNativeFeedback>
       );
@@ -103,13 +108,14 @@ const NativeButton = React.createClass({
       <TouchableOpacity
         {...buttonProps}
         style={{ flex: 1 }}
-        underlayColor={ this.props.activeOpacity }>
+        activeOpacity={ this.props.activeOpacity }>
         <View style={[styles.button, this.props.style, disabledStyle]}>
-          {this._renderText()}
+          {this._renderInner()}
         </View>
       </TouchableOpacity>
     );
   }
-});
+
+}
 
 export default NativeButton;
