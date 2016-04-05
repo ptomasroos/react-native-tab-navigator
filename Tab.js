@@ -14,7 +14,8 @@ import Layout from './Layout';
 
 export default class Tab extends React.Component {
   static propTypes = {
-    testID : PropTypes.string,
+    style: Text.propTypes.style,
+    testID: PropTypes.string,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
     badge: PropTypes.element,
@@ -54,7 +55,7 @@ export default class Tab extends React.Component {
         testID={this.props.testID}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
-        style={ styles.container }>
+        style={ [ styles.container, this.props.style ] }>
         <View>
           {icon}
           {badge}
