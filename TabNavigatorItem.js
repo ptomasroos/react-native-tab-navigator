@@ -9,6 +9,7 @@ import React, {
 export default class TabNavigatorItem extends React.Component {
   static propTypes = {
     style: Text.propTypes.style,
+    selectedStyle: Text.propTypes.style,
     renderIcon: PropTypes.func.isRequired,
     renderSelectedIcon: PropTypes.func,
     badgeText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
