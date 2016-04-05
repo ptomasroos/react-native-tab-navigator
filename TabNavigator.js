@@ -15,6 +15,9 @@ import Tab from './Tab';
 import TabBar from './TabBar';
 import TabNavigatorItem from './TabNavigatorItem';
 
+const DEFAULT_ICON_SIZE = 20;
+const DEFAULT_ICON_COLOR = 'grey';
+
 export default class TabNavigator extends React.Component {
   static propTypes = {
     ...View.propTypes,
@@ -88,12 +91,18 @@ export default class TabNavigator extends React.Component {
   }
 
   _renderVectorialIcon(item) {
+    let color = item.props.iconColor;
+
+    if (item.props.selected && item.props.iconSelectedColor) {
+      color = item.props.iconSelectedColor;
+    }
+
     if (item.props.iconName) {
       return (
         <Icon
           name={ item.props.iconName }
-          size={ item.props.iconSize || 20 }
-          color={ item.props.iconColor || 'grey' } />
+          size={ item.props.iconSize || DEFAULT_ICON_SIZE }
+          color={ color || DEFAULT_ICON_COLOR } />
       );
     }
     return false;

@@ -1,5 +1,7 @@
 'use strict';
 
+import NativeButton from './NativeButton';
+
 import React, {
   PropTypes,
   StyleSheet,
@@ -49,7 +51,7 @@ export default class Tab extends React.Component {
 
     let tabStyle = [styles.container, title ? null : styles.untitledContainer];
     return (
-      <TouchableOpacity
+      <NativeButton
         testID={this.props.testID}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
@@ -59,7 +61,7 @@ export default class Tab extends React.Component {
           {badge}
         </View>
         {title}
-      </TouchableOpacity>
+      </NativeButton>
     );
   }
 
