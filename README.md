@@ -29,8 +29,7 @@ This is an example of how to use the component and some of the commonly used pro
   <TabNavigator.Item
     selected={this.state.selectedTab === 'home'}
     title="Home"
-    renderIcon={() => <Image source={...} />}
-    renderSelectedIcon={() => <Image source={...} />}
+    renderIcon={(selected) => <TabIcon source={...} selected={selected} />}
     badgeText="1"
     onPress={() => this.setState({ selectedTab: 'home' })}>
     {homeView}
@@ -38,8 +37,7 @@ This is an example of how to use the component and some of the commonly used pro
   <TabNavigator.Item
     selected={this.state.selectedTab === 'profile'}
     title="Profile"
-    renderIcon={() => <Image source={...} />}
-    renderSelectedIcon={() => <Image source={...} />}
+    renderIcon={(selected) => <TabIcon source={...} selected={selected}  />}
     renderBadge={() => <CustomBadgeView />}
     onPress={() => this.setState({ selectedTab: 'profile' })}>
     {profileView}
