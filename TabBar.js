@@ -64,6 +64,7 @@ let styles = StyleSheet.create({
     right: 0,
   },
   tabsContainer: {
+    flex: 1,
     backgroundColor: 'transparent',
     flexDirection: 'row',
     justifyContent: 'space-around',
