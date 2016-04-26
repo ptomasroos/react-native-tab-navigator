@@ -15,21 +15,24 @@ export default class TabBar extends React.Component {
   static propTypes = {
     ...Animated.View.propTypes,
     scrollEnabled: PropTypes.bool,
+    tabBarContainerStyle: View.propTypes.style,
     shadowStyle: View.propTypes.style,
   };
 
   render() {
     return (
-      <Animated.View {...this.props} style={[styles.container, this.props.style]}>
+      <Animated.View {...this.props} style={[styles.container, this.props.tabBarContainerStyle]}>
         { this.props.scrollEnabled ?
           <ScrollView
-            style={styles.scrollviewContainer}
+            style={[styles.tabsContainer, this.props.style]}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
             { this.props.children }
           </ScrollView>
           :
-          { this.props.children }
+          <View style={[styles.tabsContainer, this.props.style]}>
+            { this.props.children }
+          </View>
         }
         <View style={[styles.shadow, this.props.shadowStyle]} />
       </Animated.View>
@@ -39,16 +42,16 @@ export default class TabBar extends React.Component {
 
 let styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f8f8f8',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
     height: Layout.tabBarHeight,
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
   },
-  scrollviewContainer: {
+  tabsContainer: {
+    backgroundColor: '#f8f8f8',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     flex: 1,
   },
   shadow: {
