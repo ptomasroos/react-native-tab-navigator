@@ -21,7 +21,7 @@ export default class TabBar extends React.Component {
 
   render() {
     const tabStyle = StyleSheet.flatten([styles.tabsContainer, this.props.style]);
-    const { flexDirection, justifyContent, alignSelf, alignItems, ...scrollStyle } = tabStyle;
+    const { flex, flexDirection, justifyContent, alignSelf, alignItems, ...scrollStyle } = tabStyle;
 
     return (
       <Animated.View {...this.props} style={[styles.container, this.props.tabBarContainerStyle]}>
@@ -29,6 +29,7 @@ export default class TabBar extends React.Component {
           <ScrollView
             style={scrollStyle}
             contentContainerStyle={{
+              flex,
               flexDirection,
               justifyContent,
               alignSelf,
@@ -52,6 +53,7 @@ export default class TabBar extends React.Component {
 
 let styles = StyleSheet.create({
   container: {
+    backgroundColor: '#f8f8f8',
     height: Layout.tabBarHeight,
     position: 'absolute',
     bottom: 0,
@@ -59,7 +61,6 @@ let styles = StyleSheet.create({
     right: 0,
   },
   tabsContainer: {
-    backgroundColor: '#f8f8f8',
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
