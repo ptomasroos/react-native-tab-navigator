@@ -20,17 +20,26 @@ export default class TabBar extends React.Component {
   };
 
   render() {
+    const tabStyle = StyleSheet.flatten([styles.tabsContainer, this.props.style]);
+    const { flexDirection, justifyContent, alignSelf, alignItems, ...scrollStyle } = tabStyle;
+
     return (
       <Animated.View {...this.props} style={[styles.container, this.props.tabBarContainerStyle]}>
         { this.props.scrollEnabled ?
           <ScrollView
-            style={[styles.tabsContainer, this.props.style]}
+            style={scrollStyle}
+            contentContainerStyle={{
+              flexDirection,
+              justifyContent,
+              alignSelf,
+              alignItems,
+            }}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
             { this.props.children }
           </ScrollView>
           :
-          <View style={[styles.tabsContainer, this.props.style]}>
+          <View style={tabStyle}>
             { this.props.children }
           </View>
         }
