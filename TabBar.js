@@ -21,7 +21,7 @@ export default class TabBar extends React.Component {
 
   render() {
     const tabStyle = StyleSheet.flatten([
-      styles.tabsContainer, this.props.style
+      styles.tabsContainer, this.props.style,
       this.props.scrollEnabled ? styles.tabsScrollViewContainer : null,
     ]);
     const { flex, flexDirection, justifyContent, alignSelf, alignItems, ...scrollStyle } = tabStyle;
