@@ -35,7 +35,8 @@ export default class TabBar extends React.Component {
               alignItems,
             }}
             horizontal={true}
-            showsHorizontalScrollIndicator={false}>
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}>
             { this.props.children }
           </ScrollView>
           :
@@ -61,7 +62,6 @@ let styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    flex: 1,
   },
   shadow: {
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
