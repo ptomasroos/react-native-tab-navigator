@@ -3,7 +3,7 @@
 import React, {
   Text,
   PropTypes,
-  View,
+  Image,
 } from 'react-native';
 
 export default class TabNavigatorItem extends React.Component {
@@ -27,7 +27,7 @@ export default class TabNavigatorItem extends React.Component {
   };
 
   static defaultProps = {
-    renderIcon: () => <View />,
+    renderIcon: () => <Image />,
   };
 
   render() {
