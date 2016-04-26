@@ -20,7 +20,10 @@ export default class TabBar extends React.Component {
   };
 
   render() {
-    const tabStyle = StyleSheet.flatten([styles.tabsContainer, this.props.style]);
+    const tabStyle = StyleSheet.flatten([
+      styles.tabsContainer, this.props.style
+      this.props.scrollEnabled ? styles.tabsScrollViewContainer : null,
+    ]);
     const { flex, flexDirection, justifyContent, alignSelf, alignItems, ...scrollStyle } = tabStyle;
 
     return (
@@ -61,8 +64,12 @@ let styles = StyleSheet.create({
     right: 0,
   },
   tabsContainer: {
+    backgroundColor: 'transparent',
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  tabsScrollViewContainer: {
+    alignSelf: 'flex-start',
   },
   shadow: {
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
