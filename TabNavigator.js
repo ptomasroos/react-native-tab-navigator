@@ -20,6 +20,8 @@ export default class TabNavigator extends React.Component {
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
+    tabStyle: Tab.propTypes.style,
+    selectedTabStyle: Tab.propTypes.style,
     hidesTabTouch: PropTypes.bool
   };
 
@@ -113,6 +115,12 @@ export default class TabNavigator extends React.Component {
         testID={item.props.testID}
         title={item.props.title}
         allowFontScaling={item.props.allowFontScaling}
+        style={[
+          item.props.tabStyle,
+          item.props.selected ?
+            item.props.selectedTabStyle :
+            null
+        ]}
         titleStyle={[
           item.props.titleStyle,
           item.props.selected ? [
