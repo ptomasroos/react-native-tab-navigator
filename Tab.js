@@ -1,5 +1,7 @@
 'use strict';
 
+import NativeButton from './NativeButton';
+
 import React, {
   PropTypes,
   StyleSheet,
@@ -12,7 +14,8 @@ import Layout from './Layout';
 
 export default class Tab extends React.Component {
   static propTypes = {
-    testID : PropTypes.string,
+    style: Text.propTypes.style,
+    testID: PropTypes.string,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
     badge: PropTypes.element,
@@ -47,19 +50,20 @@ export default class Tab extends React.Component {
       });
     }
 
-    let tabStyle = [styles.container, title ? null : styles.untitledContainer];
     return (
-      <TouchableOpacity
+      <NativeButton
         testID={this.props.testID}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
-        style={tabStyle}>
-        <View>
-          {icon}
+        style={ [ styles.container, this.props.style ] }>
+        <View style={ styles.row }>
+          <View style={ styles.col }>
+            {icon}
+            {title}
+          </View>
           {badge}
         </View>
-        {title}
-      </TouchableOpacity>
+      </NativeButton>
     );
   }
 
@@ -71,6 +75,12 @@ export default class Tab extends React.Component {
 }
 
 let styles = StyleSheet.create({
+  col: {
+    flexDirection: 'column',
+  },
+  row: {
+    flexDirection: 'row',
+  },
   badge: {
     position: 'absolute',
     top: -6,
@@ -79,11 +89,8 @@ let styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
-  },
-  untitledContainer: {
-    paddingBottom: 13,
   },
   title: {
     color: '#929292',

@@ -1,5 +1,6 @@
 'use strict';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Set } from 'immutable';
 import React, {
   PropTypes,
@@ -14,13 +15,18 @@ import Tab from './Tab';
 import TabBar from './TabBar';
 import TabNavigatorItem from './TabNavigatorItem';
 
+const DEFAULT_ICON_SIZE = 20;
+const DEFAULT_ICON_COLOR = 'grey';
+
 export default class TabNavigator extends React.Component {
   static propTypes = {
     ...View.propTypes,
     sceneStyle: View.propTypes.style,
-    tabBarStyle: TabBar.propTypes.style,
+    tabBarContainerStyle: TabBar.propTypes.style,
+    tabBarStyle: View.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
-    hidesTabTouch: PropTypes.bool
+    hidesTabTouch: PropTypes.bool,
+    scrollEnabled: PropTypes.bool,
   };
 
   constructor(props, context) {
@@ -58,7 +64,8 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, tabBarStyle, tabBarShadowStyle, sceneStyle, ...props } = this.props;
+    let { style, children, tabBarStyle, tabBarContainerStyle,
+      tabBarShadowStyle, sceneStyle, scrollEnabled, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -79,26 +86,52 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
-        <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle}>
+        <TabBar
+          style={tabBarStyle}
+          tabBarContainerStyle={tabBarContainerStyle}
+          shadowStyle={tabBarShadowStyle}
+          scrollEnabled={scrollEnabled}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
       </View>
     );
   }
 
+  _renderVectorialIcon(item) {
+    let color = item.props.iconColor;
+
+    if (item.props.selected && item.props.iconSelectedColor) {
+      color = item.props.iconSelectedColor;
+    }
+
+    if (item.props.iconName) {
+      return (
+        <View style={{ alignSelf: 'center' }}>
+          <Icon
+            name={ item.props.iconName }
+            size={ item.props.iconSize || DEFAULT_ICON_SIZE }
+            color={ color || DEFAULT_ICON_COLOR } />
+        </View>
+      );
+    }
+    return false;
+  }
+
   _renderTab(item) {
     let icon;
-    if (item.props.selected) {
-      if (item.props.renderSelectedIcon) {
-        icon = item.props.renderSelectedIcon();
+    if (!(icon = this._renderVectorialIcon(item))) {
+      if (item.props.selected) {
+        if (item.props.renderSelectedIcon) {
+          icon = item.props.renderSelectedIcon();
+        } else if (item.props.renderIcon) {
+          let defaultIcon = item.props.renderIcon();
+          icon = React.cloneElement(defaultIcon, {
+            style: [defaultIcon.props.style, styles.defaultSelectedIcon],
+          });
+        }
       } else if (item.props.renderIcon) {
-        let defaultIcon = item.props.renderIcon();
-        icon = React.cloneElement(defaultIcon, {
-          style: [defaultIcon.props.style, styles.defaultSelectedIcon],
-        });
+        icon = item.props.renderIcon();
       }
-    } else if (item.props.renderIcon) {
-      icon = item.props.renderIcon();
     }
 
     let badge;
@@ -110,6 +143,9 @@ export default class TabNavigator extends React.Component {
 
     return (
       <Tab
+        style={[
+          item.props.style,
+          item.props.selected ? item.props.selectedStyle : null ]}
         testID={item.props.testID}
         title={item.props.title}
         allowFontScaling={item.props.allowFontScaling}
