@@ -56,11 +56,13 @@ export default class Tab extends React.Component {
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
         style={ [ styles.container, this.props.style ] }>
-        <View>
-          {icon}
+        <View style={ styles.row }>
+          <View style={ styles.col }>
+            {icon}
+            {title}
+          </View>
           {badge}
         </View>
-        {title}
       </NativeButton>
     );
   }
@@ -73,6 +75,12 @@ export default class Tab extends React.Component {
 }
 
 let styles = StyleSheet.create({
+  col: {
+    flexDirection: 'column',
+  },
+  row: {
+    flexDirection: 'row',
+  },
   badge: {
     position: 'absolute',
     top: -6,
@@ -82,7 +90,7 @@ let styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'stretch',
+    alignItems: 'center',
   },
   title: {
     color: '#929292',

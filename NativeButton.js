@@ -107,11 +107,9 @@ class NativeButton extends Component {
     return (
       <TouchableOpacity
         {...buttonProps}
-        style={{ flex: 1 }}
+        style={[styles.button, this.props.style, disabledStyle]}
         activeOpacity={ this.props.activeOpacity }>
-        <View style={[styles.button, this.props.style, disabledStyle]}>
-          {this._renderInner()}
-        </View>
+        {this._renderInner()}
       </TouchableOpacity>
     );
   }

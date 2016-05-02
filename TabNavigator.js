@@ -106,10 +106,12 @@ export default class TabNavigator extends React.Component {
 
     if (item.props.iconName) {
       return (
-        <Icon
-          name={ item.props.iconName }
-          size={ item.props.iconSize || DEFAULT_ICON_SIZE }
-          color={ color || DEFAULT_ICON_COLOR } />
+        <View style={{ alignSelf: 'center' }}>
+          <Icon
+            name={ item.props.iconName }
+            size={ item.props.iconSize || DEFAULT_ICON_SIZE }
+            color={ color || DEFAULT_ICON_COLOR } />
+        </View>
       );
     }
     return false;
