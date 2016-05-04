@@ -119,7 +119,7 @@ export default class TabNavigator extends React.Component {
           item.props.tabStyle,
           item.props.selected ?
             item.props.selectedTabStyle :
-            null
+            null,
         ]}
         titleStyle={[
           item.props.titleStyle,
