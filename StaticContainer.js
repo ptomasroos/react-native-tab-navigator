@@ -2,7 +2,7 @@
 
 import React, {
   PropTypes,
-} from 'react-native';
+} from 'react';
 
 export default class StaticContainer extends React.Component {
   static propTypes = {
