@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react-native';
-let {
+import React from 'react';
+import {
   StyleSheet,
   Text,
-} = React;
+} from 'react-native';
 
 import Layout from './Layout';
 
