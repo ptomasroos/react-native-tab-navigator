@@ -16,6 +16,7 @@ export default class Tab extends React.Component {
     testID : PropTypes.string,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
+    tabStyle: View.propTypes.style,
     badge: PropTypes.element,
     onPress: PropTypes.func,
     hidesTabTouch: PropTypes.bool,
