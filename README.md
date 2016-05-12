@@ -31,6 +31,7 @@ This is an example of how to use the component and some of the commonly used pro
     title="Home"
     renderIcon={() => <Image source={...} />}
     renderSelectedIcon={() => <Image source={...} />}
+    selectedTabStyle={{backgroundColor: '...'}}
     badgeText="1"
     onPress={() => this.setState({ selectedTab: 'home' })}>
     {homeView}
@@ -40,6 +41,7 @@ This is an example of how to use the component and some of the commonly used pro
     title="Profile"
     renderIcon={() => <Image source={...} />}
     renderSelectedIcon={() => <Image source={...} />}
+    selectedTabStyle={{backgroundColor: '...'}}
     renderBadge={() => <CustomBadgeView />}
     onPress={() => this.setState({ selectedTab: 'profile' })}>
     {profileView}
@@ -49,13 +51,38 @@ This is an example of how to use the component and some of the commonly used pro
 
 See TabNavigatorItem's supported props for more info.
 
-### Hiding the Tab Bar
+## Hiding the Tab Bar
+
+### Hiding on iOS
 
 You can hide the tab bar by using styles. For example:
+
 ```js
 let tabBarHeight = 0;
 <TabNavigator
   tabBarStyle={{ height: tabBarHeight, overflow: 'hidden' }}
   sceneStyle={{ paddingBottom: tabBarHeight }}
+/>
+```
+
+### Hiding on Android
+
+Since overflow hidden is not supported on Android, you can hide the tab bar by moving it off the screen. For example:
+
+```js
+var Dimensions = require('Dimensions');
+
+if (hidden) {
+    var tabBarStyle = {position: 'absolute', top: Dimensions.get('window').height};
+    var sceneStyle = {paddingBottom: 0};
+} else {
+    let tabBarHeight = 50;
+    var tabBarStyle = {height: tabBarHeight};
+    var sceneStyle = {paddingBottom: tabBarHeight};
+}
+
+<TabNavigator
+    tabBarStyle={tabBarStyle}
+    sceneStyle={sceneStyle}
 />
 ```
