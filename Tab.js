@@ -48,13 +48,12 @@ export default class Tab extends React.Component {
       });
     }
 
-    let tabStyle = [styles.container, title ? null : styles.untitledContainer];
     return (
       <TouchableOpacity
         testID={this.props.testID}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
-        style={tabStyle}>
+        style={styles.container}>
         <View>
           {icon}
           {badge}
@@ -82,9 +81,6 @@ let styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-end',
     alignItems: 'center',
-  },
-  untitledContainer: {
-    paddingBottom: 13,
   },
   title: {
     color: '#929292',
