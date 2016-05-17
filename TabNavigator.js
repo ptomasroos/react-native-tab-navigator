@@ -156,6 +156,8 @@ export default class TabNavigator extends React.Component {
             item.props.selectedTitleStyle,
           ] : null,
         ]}
+        disabled={ item.disabled }
+        disabledStyle={ item.disabledStyle }
         badge={badge}
         onPress={item.props.onPress}
         hidesTabTouch={this.props.hidesTabTouch}>

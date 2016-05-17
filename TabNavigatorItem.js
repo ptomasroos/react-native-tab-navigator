@@ -10,6 +10,7 @@ export default class TabNavigatorItem extends React.Component {
   static propTypes = {
     style: Text.propTypes.style,
     selectedStyle: Text.propTypes.style,
+    disabledStyle: Text.propTypes.style,
     renderIcon: PropTypes.func.isRequired,
     renderSelectedIcon: PropTypes.func,
     badgeText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -23,7 +24,8 @@ export default class TabNavigatorItem extends React.Component {
     iconSize: PropTypes.number,
     iconColor: PropTypes.string,
     iconSelectedColor: PropTypes.string,
-    allowFontScaling: PropTypes.bool
+    allowFontScaling: PropTypes.bool,
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {

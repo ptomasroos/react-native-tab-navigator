@@ -21,7 +21,9 @@ export default class Tab extends React.Component {
     badge: PropTypes.element,
     onPress: PropTypes.func,
     hidesTabTouch: PropTypes.bool,
-    allowFontScaling: PropTypes.bool
+    allowFontScaling: PropTypes.bool,
+    disabled: PropTypes.bool,
+    disabledStyle: Text.propTypes.style,
   };
 
   constructor(props, context) {
@@ -31,7 +33,7 @@ export default class Tab extends React.Component {
   }
 
   render() {
-    let { title, badge } = this.props;
+    let { title, badge, disabled, disabledStyle } = this.props;
     let icon = React.Children.only(this.props.children);
 
     if (title) {
@@ -55,6 +57,8 @@ export default class Tab extends React.Component {
         testID={this.props.testID}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
+        disabled={ disabled }
+        disabledStyle={ disabledStyle }
         style={ [ styles.container, this.props.style ] }>
         <View style={ styles.row }>
           <View style={ styles.col }>
