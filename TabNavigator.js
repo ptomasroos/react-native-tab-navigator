@@ -115,7 +115,6 @@ export default class TabNavigator extends React.Component {
         testID={item.props.testID}
         title={item.props.title}
         allowFontScaling={item.props.allowFontScaling}
-        tabStyle={item.props.tabStyle}
         titleStyle={[
           item.props.titleStyle,
           item.props.selected ? [
@@ -125,7 +124,8 @@ export default class TabNavigator extends React.Component {
         ]}
         badge={badge}
         onPress={item.props.onPress}
-        hidesTabTouch={this.props.hidesTabTouch}>
+        hidesTabTouch={this.props.hidesTabTouch}
+        style={item.props.tabStyle}>
         {icon}
       </Tab>
     );

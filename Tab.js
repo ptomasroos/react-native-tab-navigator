@@ -16,11 +16,11 @@ export default class Tab extends React.Component {
     testID : PropTypes.string,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
-    tabStyle: View.propTypes.style,
     badge: PropTypes.element,
     onPress: PropTypes.func,
     hidesTabTouch: PropTypes.bool,
-    allowFontScaling: PropTypes.bool
+    allowFontScaling: PropTypes.bool,
+    style: View.propTypes.style,
   };
 
   constructor(props, context) {
@@ -49,7 +49,11 @@ export default class Tab extends React.Component {
       });
     }
 
-    let tabStyle = [styles.container, title ? null : styles.untitledContainer, this.props.tabStyle];
+    let tabStyle = [
+      styles.container,
+      title ? null : styles.untitledContainer,
+      this.props.style,
+    ];
     return (
       <TouchableOpacity
         testID={this.props.testID}
