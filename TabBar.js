@@ -31,11 +31,7 @@ let styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    height: Layout.tabBarHeight,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    height: Layout.tabBarHeight
   },
   shadow: {
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
