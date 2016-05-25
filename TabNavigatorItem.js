@@ -10,7 +10,7 @@ import {
 
 export default class TabNavigatorItem extends React.Component {
   static propTypes = {
-    renderIcon: PropTypes.func.isRequired,
+    renderIcon: PropTypes.func,
     renderSelectedIcon: PropTypes.func,
     badgeText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     renderBadge: PropTypes.func,
@@ -24,7 +24,6 @@ export default class TabNavigatorItem extends React.Component {
   };
 
   static defaultProps = {
-    renderIcon: () => <View />,
   };
 
   render() {
