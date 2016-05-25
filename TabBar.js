@@ -14,22 +14,29 @@ export default class TabBar extends React.Component {
   static propTypes = {
     ...Animated.View.propTypes,
     shadowStyle: View.propTypes.style,
+    tabBarClass: React.PropTypes.any,
   };
 
   render() {
+    const TabBarClass = this.props.tabBarClass || View;
     return (
       <Animated.View {...this.props} style={[styles.container, this.props.style]}>
-        {this.props.children}
-        <View style={[styles.shadow, this.props.shadowStyle]} />
+        <TabBarClass style={styles.innerContainer}>
+          {this.props.children}
+          <View key="tabbar_shadow" style={[styles.shadow, this.props.shadowStyle]} />
+        </TabBarClass>
       </Animated.View>
     );
   }
 }
 
 let styles = StyleSheet.create({
+  innerContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
   container: {
     backgroundColor: '#f8f8f8',
-    flexDirection: 'row',
     justifyContent: 'space-around',
     height: Layout.tabBarHeight,
     position: 'absolute',
