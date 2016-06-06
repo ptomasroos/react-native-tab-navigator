@@ -3,11 +3,11 @@
 import { Set } from 'immutable';
 import React, {
   PropTypes,
+} from 'react';
+import {
   StyleSheet,
   View,
 } from 'react-native';
-
-import autobind from 'autobind-decorator';
 
 import Badge from './Badge';
 import Layout from './Layout';
@@ -30,6 +30,8 @@ export default class TabNavigator extends React.Component {
     this.state = {
       renderedSceneKeys: this._updateRenderedSceneKeys(props.children),
     };
+
+    this._renderTab = this._renderTab.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -86,7 +88,6 @@ export default class TabNavigator extends React.Component {
     );
   }
 
-  @autobind
   _renderTab(item) {
     if (item.props.renderTab) {
       return item.props.renderTab();
@@ -115,7 +116,9 @@ export default class TabNavigator extends React.Component {
 
     return (
       <Tab
+        testID={item.props.testID}
         title={item.props.title}
+        allowFontScaling={item.props.allowFontScaling}
         titleStyle={[
           item.props.titleStyle,
           item.props.selected ? [
@@ -125,7 +128,8 @@ export default class TabNavigator extends React.Component {
         ]}
         badge={badge}
         onPress={item.props.onPress}
-        hidesTabTouch={this.props.hidesTabTouch}>
+        hidesTabTouch={this.props.hidesTabTouch}
+        style={item.props.tabStyle}>
         {icon}
       </Tab>
     );

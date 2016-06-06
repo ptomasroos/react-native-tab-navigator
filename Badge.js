@@ -1,17 +1,21 @@
 'use strict';
 
-import React from 'react-native';
-let {
+import React from 'react';
+import {
   StyleSheet,
   Text,
-} = React;
-
-import autobind from 'autobind-decorator';
+} from 'react-native';
 
 import Layout from './Layout';
 
 export default class Badge extends React.Component {
   static propTypes = Text.propTypes;
+
+  constructor(props, context) {
+    super(props, context);
+
+    this._handleLayout = this._handleLayout.bind(this);
+  }
 
   state = {
     computedSize: null,
@@ -37,7 +41,6 @@ export default class Badge extends React.Component {
     );
   }
 
-  @autobind
   _handleLayout(event) {
     let { width, height } = event.nativeEvent.layout;
     let { computedSize } = this.state;

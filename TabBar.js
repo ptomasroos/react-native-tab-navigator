@@ -1,6 +1,8 @@
 'use strict';
 
-import React, {
+import React from 'react';
+import {
+  Animated,
   Platform,
   StyleSheet,
   View,
@@ -10,16 +12,16 @@ import Layout from './Layout';
 
 export default class TabBar extends React.Component {
   static propTypes = {
-    ...View.propTypes,
+    ...Animated.View.propTypes,
     shadowStyle: View.propTypes.style,
-  }
+  };
 
   render() {
     return (
-      <View {...this.props} style={[styles.container, this.props.style]}>
+      <Animated.View {...this.props} style={[styles.container, this.props.style]}>
         {this.props.children}
         <View style={[styles.shadow, this.props.shadowStyle]} />
-      </View>
+      </Animated.View>
     );
   }
 }
