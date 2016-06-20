@@ -95,8 +95,17 @@ export default class TabNavigator extends React.Component {
         icon = item.props.renderSelectedIcon();
       } else if (item.props.renderIcon) {
         let defaultIcon = item.props.renderIcon();
+        let iconType = defaultIcon.type.displayName;
+        let iconStyles = null;
+
+        if (iconType === 'Text') {
+          iconStyles = styles.defaultSelectedTextIcon;
+        } else if (iconType === 'Image') {
+          iconStyles = styles.defaultSelectedImageIcon;
+        }
+
         icon = React.cloneElement(defaultIcon, {
-          style: [defaultIcon.props.style, styles.defaultSelectedIcon],
+          style: [defaultIcon.props.style, iconStyles],
         });
       }
     } else if (item.props.renderIcon) {
@@ -177,8 +186,11 @@ let styles = StyleSheet.create({
   defaultSelectedTitle: {
     color: 'rgb(0, 122, 255)',
   },
-  defaultSelectedIcon: {
+  defaultSelectedImageIcon: {
     tintColor: 'rgb(0, 122, 255)',
+  },
+  defaultSelectedTextIcon: {
+    color: 'rgb(0, 122, 255)',
   },
 });
 
