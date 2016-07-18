@@ -1,13 +1,8 @@
 'use strict';
 
 import { Set } from 'immutable';
-import React, {
-  PropTypes,
-} from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import React, { PropTypes } from 'react';
+import { StyleSheet, View } from 'react-native';
 
 import Badge from './Badge';
 import Layout from './Layout';

@@ -1,12 +1,7 @@
 'use strict';
 
-import React, {
-  PropTypes,
-} from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
+import React, { PropTypes } from 'react';
+import { Text, View } from 'react-native';
 
 export default class TabNavigatorItem extends React.Component {
   static propTypes = {
