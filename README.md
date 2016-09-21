@@ -59,3 +59,32 @@ let tabBarHeight = 0;
   sceneStyle={{ paddingBottom: tabBarHeight }}
 />
 ```
+
+### Props
+
+TabNavigator props
+
+| prop | default | type | description |
+| ---- | ---- | ----| ---- |
+| sceneStyle | inherited | object (style) | define for rendered scene |
+| tabBarStyle | inherited | object (style) | define style for TabBar |
+| tabBarShadowStyle | inherited | object (style) | define shadow style for tabBar |
+| hidesTabTouch | false | boolean | disable onPress opacity for Tab |
+
+TabNavigator.Item props
+
+| prop | default | type | description |
+| ---- | ---- | ----| ---- |
+| renderIcon | none | function | returns Item icon |
+| renderSelectedIcon | none | function | returns selected Item icon |
+| badgeText | none | string or number | text for Item badge |
+| renderBadge | none | function | returns Item badge |
+| title | none | string | Item title |
+| titleStyle | inherited | style | styling for Item title |
+| selectedTitleStyle | none | style | styling for selected Item title |
+| tabStyle | inherited | style | styling for tab |
+| selected | none | boolean | return whether the item is selected |
+| onPress | none | function | onPress method for Item |
+| allowFontScaling | false | boolean | allow font scaling for title |
+
+
