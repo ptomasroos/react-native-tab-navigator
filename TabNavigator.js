@@ -22,7 +22,8 @@ export default class TabNavigator extends React.Component {
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
-    hidesTabTouch: PropTypes.bool
+    hidesTabTouch: PropTypes.bool,
+    tintColor: PropTypes.string,
   };
 
   constructor(props, context) {
@@ -95,6 +96,7 @@ export default class TabNavigator extends React.Component {
   }
 
   _renderTab(item) {
+    const { tintColor } = this.props;
     let icon;
     if (item === null) {
       return;
@@ -105,7 +107,9 @@ export default class TabNavigator extends React.Component {
       } else if (item.props.renderIcon) {
         let defaultIcon = item.props.renderIcon();
         icon = React.cloneElement(defaultIcon, {
-          style: [defaultIcon.props.style, styles.defaultSelectedIcon],
+          style: [defaultIcon.props.style, 
+                  styles.defaultSelectedIcon, 
+                  tintColor && { tintColor: tintColor}],
         });
       }
     } else if (item.props.renderIcon) {
@@ -128,6 +132,7 @@ export default class TabNavigator extends React.Component {
           item.props.titleStyle,
           item.props.selected ? [
             styles.defaultSelectedTitle,
+            tintColor && { color: tintColor},
             item.props.selectedTitleStyle,
           ] : null,
         ]}
