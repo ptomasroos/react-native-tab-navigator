@@ -7,10 +7,11 @@ import React, {
 export default class StaticContainer extends React.Component {
   static propTypes = {
     shouldUpdate: PropTypes.bool,
+    allowRefresh: PropTypes.bool,
   };
 
   shouldComponentUpdate(nextProps: Object): boolean {
-    return !!nextProps.shouldUpdate;
+    return !!nextProps.shouldUpdate && !!nextProps.allowRefresh;
   }
 
   render() {
