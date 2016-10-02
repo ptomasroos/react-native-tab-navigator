@@ -59,3 +59,17 @@ let tabBarHeight = 0;
   sceneStyle={{ paddingBottom: tabBarHeight }}
 />
 ```
+### Floating Scene
+`floatingScene` prop allows you to inject an additional scene
+that renders on top of all other scenes and is always visible across different selected tabs/scene. A practical example could be the mini music player in Apple Music app,
+that  appears behind the tabs navigator and  is always visible across the different scenes.
+
+```js
+  var floatComp = (props) => {
+    return (<View><Text>This will be on top of other scenes</Text></View>)
+  }
+
+  <TabNavigator
+    floatingScene={floatComp()}
+  >
+```

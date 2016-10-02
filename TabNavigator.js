@@ -62,6 +62,7 @@ export default class TabNavigator extends React.Component {
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
+      let floatingScene = (this.props.floatingScene) ? this.props.floatingScene : null;
       let sceneKey = this._getSceneKey(item, index);
       if (!this.state.renderedSceneKeys.has(sceneKey)) {
         return;
@@ -79,6 +80,7 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
+        {floatingScene}
         <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
