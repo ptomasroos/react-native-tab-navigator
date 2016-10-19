@@ -7,6 +7,8 @@ The look and feel is slightly different than the native navigator but it is bett
 
 The API of this component may change in the future to be more like Navigator's, which works great once there is better support for nested Navigators in React Native.
 
+Note: This is **not** the same `TabNavigation` component that is used in [ExNavigation](https://github.com/exponentjs/ex-navigation), the API and implementations are slightly different -- react-native-tab-navigator stands on its own and does not depend on any other navigation library.
+
 Install
 -------
 
