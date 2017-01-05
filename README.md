@@ -85,6 +85,7 @@ TabNavigator.Item props
 | titleStyle | inherited | style | styling for Item title |
 | selectedTitleStyle | none | style | styling for selected Item title |
 | tabStyle | inherited | style | styling for tab |
+| selectedTabStyle | inherited | style | styling for tab |
 | selected | none | boolean | return whether the item is selected |
 | onPress | none | function | onPress method for Item |
 | allowFontScaling | false | boolean | allow font scaling for title |
