@@ -1,4 +1,4 @@
-# TabNavigator [![Slack](http://slack.exponentjs.com/badge.svg)](http://slack.exponentjs.com)
+# TabNavigator
 A tab bar that switches between scenes, written in JS for cross-platform support. It works on iOS and Android.
 
 ---
