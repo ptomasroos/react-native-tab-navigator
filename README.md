@@ -33,7 +33,7 @@ import TabNavigator from 'react-native-tab-navigator';
 This is an example of how to use the component and some of the commonly used props that it supports:
 
 ```js
-<TabNavigator>
+<TabNavigator tabBarStyle={...}>
   <TabNavigator.Item
     selected={this.state.selectedTab === 'home'}
     title="Home"
