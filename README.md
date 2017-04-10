@@ -15,6 +15,11 @@ The API of this component may change in the future to be more like Navigator's, 
 
 Note: This is **not** the same `TabNavigation` component that is used in [ExNavigation](https://github.com/exponentjs/ex-navigation), the API and implementations are slightly different -- react-native-tab-navigator stands on its own and does not depend on any other navigation library.
 
+## Demo
+For demo, please check the example folder
+
+![demo](demo.gif)
+
 Install
 -------
 
