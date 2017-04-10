@@ -18,7 +18,7 @@ Note: This is **not** the same `TabNavigation` component that is used in [ExNavi
 ## Demo
 For demo, please check the example folder
 
-![demo](demo.gif)
+<img src="./demo.gif" alt="demo" style="height: 600px;"/>
 
 Install
 -------
