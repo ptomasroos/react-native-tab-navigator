@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TabDemo' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for TabDemo
+
+  target 'TabDemo-tvOSTests' do
+    inherit! :search_paths
+    pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+    # Pods for testing
+  end
+
+  target 'TabDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
