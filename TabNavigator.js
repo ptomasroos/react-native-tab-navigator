@@ -96,7 +96,7 @@ export default class TabNavigator extends React.Component {
 
   _renderTab(item) {
     let icon;
-    if (item === null) {
+    if (item === null || (item.props.hideTab && item.props.hideTab === true)) {
       return;
     }
     if (item.props.selected) {
@@ -131,6 +131,7 @@ export default class TabNavigator extends React.Component {
             item.props.selectedTitleStyle,
           ] : null,
         ]}
+        hideTab={item.props.hideTab}
         badge={badge}
         onPress={item.props.onPress}
         hidesTabTouch={this.props.hidesTabTouch}
