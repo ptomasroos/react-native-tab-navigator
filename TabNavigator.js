@@ -95,22 +95,17 @@ export default class TabNavigator extends React.Component {
   }
 
   _renderTab(item) {
-    let icon;
     if (item === null) {
       return;
     }
-    if (item.props.selected) {
-      if (item.props.renderSelectedIcon) {
-        icon = item.props.renderSelectedIcon();
-      } else if (item.props.renderIcon) {
-        let defaultIcon = item.props.renderIcon();
-        icon = React.cloneElement(defaultIcon, {
-          style: [defaultIcon.props.style, styles.defaultSelectedIcon],
-        });
-      }
-    } else if (item.props.renderIcon) {
-      icon = item.props.renderIcon();
-    }
+
+    const icon = item.props.renderIcon();
+    const defaultSelectedIcon = item.props.renderSelectedIcon();
+    const selectedIcon = React.cloneElement(defaultSelectedIcon, {
+      style: [
+        defaultSelectedIcon.props.style,
+        item.props.selected ? styles.defaultSelectedIcon : styles.defaultHiddenIcon],
+    });
 
     let badge;
     if (item.props.renderBadge) {
@@ -135,7 +130,10 @@ export default class TabNavigator extends React.Component {
         onPress={item.props.onPress}
         hidesTabTouch={this.props.hidesTabTouch}
         style={item.props.tabStyle}>
-        {icon}
+        <View>
+          {icon}
+          {selectedIcon}
+        </View>
       </Tab>
     );
   }
@@ -189,6 +187,9 @@ let styles = StyleSheet.create({
   defaultSelectedIcon: {
     tintColor: 'rgb(0, 122, 255)',
   },
+  defaultHiddenIcon: {
+    opacity: 0,
+  }
 });
 
 TabNavigator.Item = TabNavigatorItem;
