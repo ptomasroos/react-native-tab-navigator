@@ -38,8 +38,7 @@ This is an example of how to use the component and some of the commonly used pro
   <TabNavigator.Item
     selected={this.state.selectedTab === 'profile'}
     title="Profile"
-    renderIcon={() => <Image source={...} />}
-    renderSelectedIcon={() => <Image source={...} />}
+    renderIcon={selected => <CustomIcon selected={selected} />}
     renderBadge={() => <CustomBadgeView />}
     onPress={() => this.setState({ selectedTab: 'profile' })}>
     {profileView}
