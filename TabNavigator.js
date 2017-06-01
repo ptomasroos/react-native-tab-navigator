@@ -134,7 +134,12 @@ export default class TabNavigator extends React.Component {
         badge={badge}
         onPress={item.props.onPress}
         hidesTabTouch={this.props.hidesTabTouch}
-        style={item.props.tabStyle}>
+        style={[
+          item.props.tabStyle,
+          item.props.selected?[
+            item.props.selectedTabStyle
+          ]:null
+        ]}>
         {icon}
       </Tab>
     );
