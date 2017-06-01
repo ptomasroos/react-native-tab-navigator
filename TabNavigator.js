@@ -75,9 +75,9 @@ export default class TabNavigator extends React.Component {
         return;
       }
 
-      let { selected } = item.props;
+      let { selected,allowRefresh } = item.props;
       let scene =
-        <SceneContainer key={sceneKey} selected={selected} style={sceneStyle}>
+        <SceneContainer key={sceneKey} allowRefresh={allowRefresh} selected={selected} style={sceneStyle}>
           {item}
         </SceneContainer>;
 
@@ -148,7 +148,7 @@ class SceneContainer extends React.Component {
   };
 
   render() {
-    let { selected, ...props } = this.props;
+    let { selected, allowRefresh, ...props } = this.props;
     return (
       <View
         {...props}
@@ -159,7 +159,7 @@ class SceneContainer extends React.Component {
           selected ? null : styles.hiddenSceneContainer,
           props.style,
         ]}>
-        <StaticContainer shouldUpdate={selected}>
+        <StaticContainer shouldUpdate={selected} allowRefresh={allowRefresh}>
           {this.props.children}
         </StaticContainer>
       </View>
