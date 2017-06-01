@@ -1,13 +1,7 @@
 'use strict';
 
 import React from 'react';
-import {
-  Animated,
-  Platform,
-  StyleSheet,
-  View,
-} from 'react-native';
-
+import { Animated, Platform, StyleSheet, View } from 'react-native';
 import Layout from './Layout';
 
 export default class TabBar extends React.Component {

@@ -1,13 +1,7 @@
 'use strict';
-import React, {
-  PropTypes,
-} from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+
+import React, {PropTypes} from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import Layout from './Layout';
 
