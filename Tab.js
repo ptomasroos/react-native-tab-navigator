@@ -15,12 +15,12 @@ export default class Tab extends React.Component {
   static propTypes = {
     testID : PropTypes.string,
     title: PropTypes.string,
-    titleStyle: Text.propTypes.style,
+    titleStyle: Text.propTypes && Text.propTypes.style,
     badge: PropTypes.element,
     onPress: PropTypes.func,
     hidesTabTouch: PropTypes.bool,
     allowFontScaling: PropTypes.bool,
-    style: View.propTypes.style,
+    style: View.propTypes && View.propTypes.style,
   };
 
   constructor(props, context) {
