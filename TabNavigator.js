@@ -22,6 +22,7 @@ export default class TabNavigator extends React.Component {
     sceneStyle: View.propTypes.style,
     tabBarStyle: TabBar.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
+    tabBarClass: PropTypes.any,
     hidesTabTouch: PropTypes.bool
   };
 
@@ -63,7 +64,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
-    let { style, children, tabBarStyle, tabBarShadowStyle, sceneStyle, ...props } = this.props;
+    let { style, children, tabBarStyle, tabBarShadowStyle, tabBarClass, sceneStyle, ...props } = this.props;
     let scenes = [];
 
     React.Children.forEach(children, (item, index) => {
@@ -87,7 +88,7 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
-        <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle}>
+        <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle} tabBarClass={tabBarClass}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
       </View>
