@@ -6,6 +6,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform,
   View,
 } from 'react-native';
 
@@ -57,6 +59,26 @@ export default class Tab extends React.Component {
       title ? null : styles.untitledContainer,
       this.props.style,
     ];
+    if (
+      !this.props.hidesTabTouch &&
+      Platform.OS === 'android' &&
+      Platform.Version >= 21
+    ) {
+      return (
+        <TouchableNativeFeedback
+          testID={this.props.testID}
+          background={TouchableNativeFeedback.Ripple(undefined, true)}
+          onPress={this._handlePress}>
+          <View style={tabStyle}>
+            <View>
+              {icon}
+              {badge}
+            </View>
+            {title}
+          </View>
+        </TouchableNativeFeedback>
+      );
+    }
     return (
       <TouchableOpacity
         testID={this.props.testID}
