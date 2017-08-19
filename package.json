@@ -1,6 +1,6 @@
 {
-  "name": "react-native-tab-navigator",
-  "version": "0.3.3",
+  "name": "@pru-rt/react-native-tab-navigator",
+  "version": "0.3.4",
   "description": "A tab bar that switches between scenes, written in JS for cross-platform support",
   "main": "TabNavigator.js",
   "repository": {
@@ -23,5 +23,9 @@
   "dependencies": {
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
