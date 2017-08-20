@@ -1,12 +1,12 @@
 'use strict';
 
 import { Set } from 'immutable';
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
+  ViewPropTypes
 } from 'react-native';
 
 import Badge from './Badge';
@@ -18,8 +18,8 @@ import TabNavigatorItem from './TabNavigatorItem';
 
 export default class TabNavigator extends React.Component {
   static propTypes = {
-    ...View.propTypes,
-    sceneStyle: View.propTypes.style,
+    ...ViewPropTypes,
+    sceneStyle: ViewPropTypes.style,
     tabBarStyle: TabBar.propTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
     hidesTabTouch: PropTypes.bool
