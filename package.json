@@ -1,5 +1,5 @@
 {
-  "name": "@pru-rt/react-native-tab-navigator",
+  "name": "react-native-tab-navigator",
   "version": "0.3.4",
   "description": "A tab bar that switches between scenes, written in JS for cross-platform support",
   "main": "TabNavigator.js",
