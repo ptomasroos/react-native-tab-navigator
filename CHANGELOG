@@ -1,0 +1,4 @@
+# 0.3.4
+
+BREAKING: Updated PropTypes imports for React 16
+BREAKING: Updated ViewProps imports for RN 0.44 release
