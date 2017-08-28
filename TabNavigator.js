@@ -147,6 +147,11 @@ class SceneContainer extends React.Component {
     selected: PropTypes.bool,
   };
 
+  componentWillUpdate(nextProps) {
+    // so child can be updated once when deselected, as well as while selected
+    this.shouldUpdateChild = (nextProps.selected || this.props.selected)
+  }
+
   render() {
     let { selected, ...props } = this.props;
     return (
@@ -159,7 +164,7 @@ class SceneContainer extends React.Component {
           selected ? null : styles.hiddenSceneContainer,
           props.style,
         ]}>
-        <StaticContainer shouldUpdate={selected}>
+        <StaticContainer shouldUpdate={this.shouldUpdateChild}>
           {this.props.children}
         </StaticContainer>
       </View>
