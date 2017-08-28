@@ -95,6 +95,10 @@ export default class TabNavigator extends React.Component {
   }
 
   _renderTab(item) {
+    if (item.props.renderTab) {
+      return item.props.renderTab();
+    }
+    
     let icon;
     if (item === null) {
       return;
