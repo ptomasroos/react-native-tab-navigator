@@ -7,6 +7,11 @@ The look and feel is slightly different than the native navigator but it is bett
 
 Note: This is **not** the same `TabNavigation` component that is used in [ExNavigation](https://github.com/exponentjs/ex-navigation), the API and implementations are slightly different -- react-native-tab-navigator stands on its own and does not depend on any other navigation library.
 
+## Demo
+For demo, please check the example folder
+
+<img src="./demo.gif" alt="demo" style="height: 600px;"/>
+
 Install
 -------
 
