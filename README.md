@@ -1,5 +1,5 @@
 # TabNavigator
-A tab bar that switches between scenes, written in JS for cross-platform support. It works on iOS and Android.
+A tab bar that switches between scenes, written in JS for cross-platform support. It works on iOS and Android, and supports iPhone X out of the box.
 
 This component is compatible with React Native 0.16 and newer.
 
@@ -17,7 +17,15 @@ Install
 
 Make sure that you are in your React Native project directory and run:
 
-```npm install react-native-tab-navigator --save```
+`npm install react-native-tab-navigator --save`
+
+Then, link *react-native-safe-area* using:
+
+`react-native link react-native-safe-area`
+
+> **Why do I need to do this?**
+>
+> This allows TabNavigator to be aware of recent iOS 11 Safe Area concepts. It is the best way to deal with the new iPhone X, and any other future iOS layout changes.
 
 ## Usage
 
@@ -91,5 +99,3 @@ TabNavigator.Item props
 | selected | none | boolean | return whether the item is selected |
 | onPress | none | function | onPress method for Item |
 | allowFontScaling | false | boolean | allow font scaling for title |
-
-

@@ -22,6 +22,7 @@
   "homepage": "https://github.com/exponentjs/react-native-tab-navigator#readme",
   "dependencies": {
     "immutable": "^3.8.1",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react-native-safe-area": "^0.2.1"
   }
 }
