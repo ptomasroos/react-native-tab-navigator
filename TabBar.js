@@ -7,6 +7,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import SafeArea from 'react-native-safe-area';
 
 import ViewPropTypes from './config/ViewPropTypes';
 import Layout from './Layout';
@@ -17,9 +18,22 @@ export default class TabBar extends React.Component {
     shadowStyle: ViewPropTypes.style,
   };
 
+  constructor(props) {
+    super(props)
+    const self = this
+    this.state = { safeBottom: 0 }
+    SafeArea.getSafeAreaInsetsForRootView().then((res) => {
+      self.setState({ safeBottom: res.safeAreaInsets.bottom})
+    })
+  }
+
   render() {
+    const safeStyle = {
+      height: Layout.tabBarHeight + this.state.safeBottom,
+      paddingBottom: this.state.safeBottom,
+    }
     return (
-      <Animated.View {...this.props} style={[styles.container, this.props.style]}>
+      <Animated.View {...this.props} style={[styles.container, safeStyle, this.props.style]}>
         {this.props.children}
         <View style={[styles.shadow, this.props.shadowStyle]} />
       </Animated.View>
@@ -32,7 +46,6 @@ let styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    height: Layout.tabBarHeight,
     position: 'absolute',
     bottom: 0,
     left: 0,
