@@ -86,7 +86,7 @@ export default class Tab extends React.Component {
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
         style={tabStyle}>
-        <View>
+        <View style={tabStyle}>
           {icon}
           {badge}
         </View>
