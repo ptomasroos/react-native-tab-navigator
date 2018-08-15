@@ -75,6 +75,7 @@ TabNavigator props
 | tabBarStyle | inherited | object (style) | define style for TabBar |
 | tabBarShadowStyle | inherited | object (style) | define shadow style for tabBar |
 | hidesTabTouch | false | boolean | disable onPress opacity for Tab |
+| floatingScene | null | Component | additinal scene rendered on top and is visible across scenes |
 
 TabNavigator.Item props
 

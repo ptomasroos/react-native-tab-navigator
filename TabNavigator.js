@@ -63,6 +63,7 @@ export default class TabNavigator extends React.Component {
   }
 
   render() {
+    let floatingScene = (this.props.floatingScene) ? this.props.floatingScene : null;
     let { style, children, tabBarStyle, tabBarShadowStyle, sceneStyle, ...props } = this.props;
     let scenes = [];
 
@@ -87,6 +88,7 @@ export default class TabNavigator extends React.Component {
     return (
       <View {...props} style={[styles.container, style]}>
         {scenes}
+        {floatingScene}
         <TabBar style={tabBarStyle} shadowStyle={tabBarShadowStyle}>
           {React.Children.map(children, this._renderTab)}
         </TabBar>
