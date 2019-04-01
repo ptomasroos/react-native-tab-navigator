@@ -122,6 +122,8 @@ export default class TabNavigator extends React.Component {
     return (
       <Tab
         testID={item.props.testID}
+        accessible={item.props.accessible}
+        accessibilityLabel={item.props.accessibilityLabel}
         title={item.props.title}
         allowFontScaling={item.props.allowFontScaling}
         titleStyle={[
