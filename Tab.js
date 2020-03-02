@@ -17,6 +17,8 @@ import Layout from './Layout';
 export default class Tab extends React.Component {
   static propTypes = {
     testID : PropTypes.string,
+    accessible: PropTypes.bool,
+    accessibilityLabel : PropTypes.string,
     title: PropTypes.string,
     titleStyle: Text.propTypes.style,
     badge: PropTypes.element,
@@ -68,6 +70,8 @@ export default class Tab extends React.Component {
       return (
         <TouchableNativeFeedback
           testID={this.props.testID}
+          accessible={this.props.accessible}
+          accessibilityLabel={this.props.accessibilityLabel}
           background={TouchableNativeFeedback.Ripple(undefined, true)}
           onPress={this._handlePress}>
           <View style={tabStyle}>
@@ -83,6 +87,8 @@ export default class Tab extends React.Component {
     return (
       <TouchableOpacity
         testID={this.props.testID}
+        accessible={this.props.accessible}
+        accessibilityLabel={this.props.accessibilityLabel}
         activeOpacity={this.props.hidesTabTouch ? 1.0 : 0.8}
         onPress={this._handlePress}
         style={tabStyle}>

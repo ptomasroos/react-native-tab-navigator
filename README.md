@@ -91,5 +91,6 @@ TabNavigator.Item props
 | selected | none | boolean | return whether the item is selected |
 | onPress | none | function | onPress method for Item |
 | allowFontScaling | false | boolean | allow font scaling for title |
-
-
+| accessible | none | boolean | indicates if this item is an accessibility element |
+| accessibilityLabel | none | string | override text for screen readers |
+| testID | none | string | used to locate this item in end-to-end-tests |
