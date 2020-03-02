@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
-import { Set } from "immutable";
-import React from "react";
-import PropTypes from "prop-types";
-import { StyleSheet, View, Animated } from "react-native";
+import { Set } from 'immutable';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, View, Animated } from 'react-native';
 
-import Badge from "./Badge";
-import Layout from "./Layout";
-import StaticContainer from "./StaticContainer";
-import Tab from "./Tab";
-import TabBar from "./TabBar";
-import TabNavigatorItem from "./TabNavigatorItem";
-import  { AnimatedViewPropTypes } from "./config/ViewPropTypes";
+import Badge from './Badge';
+import Layout from './Layout';
+import StaticContainer from './StaticContainer';
+import Tab from './Tab';
+import TabBar from './TabBar';
+import TabNavigatorItem from './TabNavigatorItem';
+import  { AnimatedViewPropTypes } from './config/ViewPropTypes';
 
 export default class TabNavigator extends React.Component {
   static propTypes = {
@@ -145,7 +145,7 @@ class SceneContainer extends React.Component {
     return (
       <Animated.View
         {...props}
-        pointerEvents={selected ? "auto" : "none"}
+        pointerEvents={selected ? 'auto' : 'none'}
         removeClippedSubviews={!selected}
         style={[styles.sceneContainer, selected ? null : styles.hiddenSceneContainer, props.style]}
       >
@@ -160,7 +160,7 @@ let styles = StyleSheet.create({
     flex: 1
   },
   sceneContainer: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
@@ -168,14 +168,14 @@ let styles = StyleSheet.create({
     paddingBottom: Layout.tabBarHeight
   },
   hiddenSceneContainer: {
-    overflow: "hidden",
+    overflow: 'hidden',
     opacity: 0
   },
   defaultSelectedTitle: {
-    color: "rgb(0, 122, 255)"
+    color: 'rgb(0, 122, 255)'
   },
   defaultSelectedIcon: {
-    tintColor: "rgb(0, 122, 255)"
+    tintColor: 'rgb(0, 122, 255)'
   }
 });
 
