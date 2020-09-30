@@ -34,7 +34,7 @@ export default class TabNavigator extends React.Component {
     this._renderTab = this._renderTab.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let { renderedSceneKeys } = this.state;
     this.setState({
       renderedSceneKeys: this._updateRenderedSceneKeys(
