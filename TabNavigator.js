@@ -20,7 +20,7 @@ export default class TabNavigator extends React.Component {
   static propTypes = {
     ...ViewPropTypes,
     sceneStyle: ViewPropTypes.style,
-    tabBarStyle: TabBar.propTypes.style,
+    tabBarStyle: ViewPropTypes.style,
     tabBarShadowStyle: TabBar.propTypes.shadowStyle,
     hidesTabTouch: PropTypes.bool
   };
@@ -34,7 +34,7 @@ export default class TabNavigator extends React.Component {
     this._renderTab = this._renderTab.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let { renderedSceneKeys } = this.state;
     this.setState({
       renderedSceneKeys: this._updateRenderedSceneKeys(
